@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Energy.API</name>
+    </assembly>
+    <members>
+        <member name="M:Energy.API.Controllers.DataController.GetAsync(System.Guid,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            Get energy data from a specific device.
+            </summary>
+        </member>
+    </members>
+</doc>

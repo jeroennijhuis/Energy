@@ -10,7 +10,6 @@ namespace Energy.API
 {
     public class Startup
     {
-        //todo swagger
         //todo authentication
         public Startup(IConfiguration configuration)
         {
@@ -24,6 +23,26 @@ namespace Energy.API
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // Register the Swagger services
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1";
+                    document.Info.Title = "Energy API";
+                    document.Info.Description = "https://github.com/jeroennijhuis/Energy-Insight";
+                    document.Info.Contact = new NSwag.OpenApiContact
+                    {
+                        Name = "Jeroen Nijhuis"
+                    };
+                    document.Info.License = new NSwag.OpenApiLicense
+                    {
+                        Name = "License",
+                        Url = "https://github.com/jeroennijhuis/Energy-Insight/blob/master/LICENSE"
+                    };
+                };
+            });
+
             //AWS DynamoDB
             services.AddDefaultAWSOptions(Configuration.GetAWSOptions());
             services.AddAWSService<IAmazonDynamoDB>();
@@ -36,8 +55,11 @@ namespace Energy.API
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
             else
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+
+            // Register the Swagger generator and the Swagger UI middleware
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseHttpsRedirection();
             app.UseMvc();
