@@ -20,6 +20,10 @@ namespace Energy.API.Controllers
         /// <summary>
         /// Get energy data from a specific device.
         /// </summary>
+        /// <param name="deviceid">Guid of the device you would like to see the data from</param>
+        /// <param name="maxItems">The maximum number of items returned</param>d
+        /// <param name="from">Returns only data past this date</param>d
+        /// <param name="to">Returns only data before this date</param>d
         [HttpPost]
         [Route("device/{deviceid}/energy")]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]

@@ -35,19 +35,19 @@ while 1:
 			ReadSerialLine() # 0-0:96.1.1
 			ReadSerialLine() # 0-0:96.1.1
 			
-			# 1-0:1.8.1 Consumed Rate 1 (Low)
+			# 1-0:1.8.1 Total consumption at a low tariff
 			data = GetData('1-0:1.8.1(','*kWh)') 
 			energyData.ConsumedRate1 = Decimal(data)
 			
-			# 1-0:2.8.1 Returned Rate 1 (Low)
+			# 1-0:2.8.1 Total returned at a low tariff
 			data = GetData('1-0:2.8.1(','*kWh)') 
 			energyData.ReturnedRate1 = Decimal(data)
 
-			# 1-0:1.8.2 Consumed Rate 2 (High)
+			# 1-0:1.8.2 Total consumption at a high tariff
 			data = GetData('1-0:1.8.2(','*kWh)') 
 			energyData.ConsumedRate2 = Decimal(data)
 			
-			# 1-0:2.8.2 Returned Rate 2 (High)
+			# 1-0:2.8.2 Total returned at a high tariff
 			data = GetData('1-0:2.8.2(','*kWh)') 
 			energyData.ReturnedRate2 = Decimal(data)
 			
