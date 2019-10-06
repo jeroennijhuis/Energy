@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <AssemblyName>Energy.Repository.DynamoDb</AssemblyName>
     <RootNamespace>Energy.Repository.DynamoDb</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.101.70" />
+    <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.3.101.72" />
   </ItemGroup>
 
   <ItemGroup>
